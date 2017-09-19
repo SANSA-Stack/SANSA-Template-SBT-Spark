@@ -4,12 +4,12 @@ import java.io.File
 import scala.collection.mutable
 import org.apache.spark.sql.SparkSession
 import net.sansa_stack.inference.spark.RDFGraphMaterializer
-import net.sansa_stack.inference.spark.data.RDFGraphLoader
+import net.sansa_stack.inference.spark.data.loader.RDFGraphLoader
 import net.sansa_stack.inference.spark.forwardchaining.ForwardRuleReasonerRDFS
 import net.sansa_stack.inference.rules.ReasoningProfile
 import net.sansa_stack.inference.spark.forwardchaining.ForwardRuleReasonerOWLHorst
 import net.sansa_stack.inference.rules.ReasoningProfile._
-import net.sansa_stack.inference.spark.data.RDFGraphWriter
+import net.sansa_stack.inference.spark.data.writer.RDFGraphWriter
 import net.sansa_stack.rdf.spark.io.NTripleReader
 
 object RDFGraphInference {
@@ -56,7 +56,7 @@ object RDFGraphInference {
       .getOrCreate()
 
     // load triples from disk
-    val graph = RDFGraphLoader.loadFromFile(new File(input).getAbsolutePath, sparkSession.sparkContext, 4)
+    val graph = RDFGraphLoader.loadFromDisk(sparkSession: SparkSession, new File(input).getAbsolutePath: String, 4: Int)
     println(s"|G|=${graph.size()}")
 
     // create reasoner
@@ -71,7 +71,7 @@ object RDFGraphInference {
     println(s"|G_inferred|=${inferredGraph.size()}")
 
     // write triples to disk
-    RDFGraphWriter.writeGraphToFile(inferredGraph, new File(output).getAbsolutePath)
+    RDFGraphWriter.writeToDisk(inferredGraph, new File(output).getAbsolutePath)
 
     sparkSession.stop
   }
