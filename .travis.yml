@@ -3,6 +3,8 @@ sudo: false
 cache:
   directories:
   - $HOME/.m2
+  - $HOME/.ivy2/cache
+  - $HOME/.sbt
 scala:
   - 2.11.11
 script:
