@@ -1,16 +1,12 @@
 name := "SANSA-Template-SBT-Spark"
 
-version := "0.5.1-SNAPSHOT"
+version := "0.6.0"
 
 scalaVersion := "2.11.11"
 
 val varscalaVersion = "2.11.11"
 val varscalaBinaryVersion = "2.11"
-val sansaRDFVersion = "0.5.1-SNAPSHOT"
-val sansaOWLVersion = "0.4.2-SNAPSHOT"
-val sansaQueryVersion = "0.5.1-SNAPSHOT"
-val sansaInferenceVersion = "0.5.1-SNAPSHOT"
-val sansaMLVersion = "0.5.1-SNAPSHOT"
+val sansaVersion = "0.6.0"
 
 val sparkVersion = "2.4.3"
 
@@ -46,9 +42,9 @@ resolvers ++= Seq(
 
 // | SANSA Layers
 libraryDependencies ++= Seq(
-    "net.sansa-stack" %% "sansa-rdf-spark" % sansaRDFVersion,
-    "net.sansa-stack" %% "sansa-owl-spark" % sansaOWLVersion,
-    "net.sansa-stack" %% "sansa-inference-spark" % sansaInferenceVersion,
-    "net.sansa-stack" %% "sansa-query-spark" % sansaQueryVersion,
-    "net.sansa-stack" %% "sansa-ml-spark" % sansaMLVersion
+    "net.sansa-stack" %% "sansa-rdf-spark" % sansaVersion,
+    "net.sansa-stack" %% "sansa-owl-spark" % sansaVersion,
+    "net.sansa-stack" %% "sansa-inference-spark" % sansaVersion,
+    "net.sansa-stack" %% "sansa-query-spark" % sansaVersion,
+    "net.sansa-stack" %% "sansa-ml-spark" % sansaVersion
 )
