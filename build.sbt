@@ -1,12 +1,12 @@
 name := "SANSA-Template-SBT-Spark"
 
-version := "0.6.0"
+version := "0.6.1-SNAPSHOT"
 
 scalaVersion := "2.11.11"
 
 val varscalaVersion = "2.11.11"
 val varscalaBinaryVersion = "2.11"
-val sansaVersion = "0.6.0"
+val sansaVersion = "0.6.1-SNAPSHOT"
 
 val sparkVersion = "2.4.3"
 
